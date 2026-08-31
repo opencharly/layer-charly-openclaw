@@ -1,7 +1,7 @@
 version: 2026.232.0520
 charly-openclaw:
     candy:
-        version: 2026.218.1200
+        version: 2026.243.0100
         description: |-
             Metadata concept candy owning the charly-openclaw skills whose names have no namesake candy (openclaw agent images). Owns its family's `skill:` kind entities (sibling nodes in this file) — the
             the plugins→candies migration; candy/plugin-marketplace regenerates the marketplace
@@ -49,7 +49,7 @@ openclaw-desktop-skill:
                 - ollama                   # CPU ollama (GPU-agnostic layer)
                 - charly                       # the full toolchain: charly binary + virtualization + gocryptfs + socat
                 - container-nesting        # nested rootless podman/buildah/skopeo
-                - '@github.com/opencharly/layer-golang:v2026.235.2057'
+                - '@github.com/opencharly/layer-golang:v2026.239.1614'
                 - gh
                 - '@github.com/opencharly/pod-dbus:v2026.235.2115'
                 - charly
