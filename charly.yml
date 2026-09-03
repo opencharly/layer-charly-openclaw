@@ -1,7 +1,7 @@
 version: 2026.232.0520
 charly-openclaw:
     candy:
-        version: 2026.243.0909
+        version: 2026.246.0100
         description: |-
             Metadata concept candy owning the charly-openclaw skills whose names have no namesake candy (openclaw agent images). Owns its family's `skill:` kind entities (sibling nodes in this file) — the
             the plugins→candies migration; candy/plugin-marketplace regenerates the marketplace
@@ -428,7 +428,7 @@ openclaw-layer-skill:
         family: openclaw
         owner: charly-openclaw
         description: |-
-            OpenClaw AI gateway service on port 18789 via npm with persistent data.
+            OpenClaw AI gateway service on port 18789 via npm with persistent data (OpenClaw 2.0, npm openclaw@2026.8.x).
             Use when working with OpenClaw, AI gateway configuration, or model routing.
         content: |-
             # openclaw -- AI gateway service
