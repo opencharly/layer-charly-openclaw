@@ -1,7 +1,5 @@
-version: 2026.249.2125
 charly-openclaw:
     candy:
-        version: 2026.246.0100
         description: |-
             Metadata concept candy owning the charly-openclaw skills whose names have no namesake candy (openclaw agent images). Owns its family's `skill:` kind entities (sibling nodes in this file) — the
             the plugins→candies migration; candy/plugin-marketplace regenerates the marketplace
