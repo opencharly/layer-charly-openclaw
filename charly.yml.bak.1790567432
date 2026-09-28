@@ -1,5 +1,7 @@
+version: 2026.249.2125
 charly-openclaw:
     candy:
+        version: 2026.246.0100
         description: |-
             Metadata concept candy owning the charly-openclaw skills whose names have no namesake candy (openclaw agent images). Owns its family's `skill:` kind entities (sibling nodes in this file) — the
             the plugins→candies migration; candy/plugin-marketplace regenerates the marketplace
@@ -14,6 +16,7 @@ charly-openclaw:
               context:
                 - build
               command: "true"
+
 openclaw-full-layer-skill:
     skill:
         name: openclaw-full-layer
@@ -24,18 +27,18 @@ openclaw-full-layer-skill:
             Use when working with the openclaw-full candy.
         content: |-
             # openclaw-full -- Maximal OpenClaw deployment
-
+            
             ## Candy Properties
-
+            
             | Property | Value |
             |----------|-------|
             | Install files | `charly.yml` (metalayer, layers only) |
             | Depends | none (composes other candies) |
-
+            
             ## Composed Candies
-
+            
             This metalayer includes the following candies:
-
+            
             - `openclaw` -- AI gateway
             - `chrome` -- Google Chrome browser
             - `claude-code` -- Claude Code CLI
@@ -64,9 +67,9 @@ openclaw-full-layer-skill:
             - `ffmpeg` -- FFmpeg multimedia
             - `ripgrep` -- Fast text search
             - `sqlite` -- SQLite database CLI
-
+            
             ## Usage
-
+            
             ```yaml
             # box charly.yml — composition is an inline candy: list in the body
             openclaw-full-box:
@@ -75,32 +78,33 @@ openclaw-full-layer-skill:
                     candy:
                         - openclaw-full
             ```
-
+            
             ## Used In Boxes
-
+            
             - `openclaw-full`
-
+            
             ## Related Candies
             - `/charly-openclaw:openclaw` — base gateway layer included in this metalayer
             - `/charly-selkies:sway-desktop-vnc` — desktop candy paired in sway-browser boxes
-
+            
             ## Related Commands
             - `/charly-automation:openclaw-deploy` — gateway configuration, model auth, and channel setup
             - `/charly-build:build` — builds the metalayer composition into a box
             - `/charly-core:charly-config` — sets up secrets and quadlets for openclaw-full boxes
-
+            
             ## When to Use This Skill
-
+            
             Use when the user asks about:
             - Full OpenClaw deployment with all tools
             - The `openclaw-full` metalayer composition
             - Which tools are included in the maximal OpenClaw box
             - The `openclaw-full` candy
-
+            
             ## Related
-
+            
             - `/charly-image:layer` — candy authoring reference (`charly.yml` schema, plan steps, service declarations)
             - `/charly-check:check` — declarative testing (`check:` block, `charly check box`, `charly check live`)
+
 openclaw-full-ml-layer-skill:
     skill:
         name: openclaw-full-ml-layer
@@ -111,24 +115,24 @@ openclaw-full-ml-layer-skill:
             Use when working with the openclaw-full-ml candy.
         content: |-
             # openclaw-full-ml -- OpenClaw full + ML tools
-
+            
             ## Candy Properties
-
+            
             | Property | Value |
             |----------|-------|
             | Install files | `charly.yml` (metalayer, layers only) |
             | Depends | none (composes other candies) |
-
+            
             ## Composed Candies
-
+            
             This metalayer extends `openclaw-full` with ML capabilities:
-
+            
             - `openclaw-full` -- all OpenClaw tools
             - `whisper` -- OpenAI Whisper speech-to-text (requires CUDA)
             - `sherpa-onnx` -- Offline text-to-speech
-
+            
             ## Usage
-
+            
             ```yaml
             # box charly.yml — composition is an inline candy: list in the body
             openclaw-full-ml-box:
@@ -137,31 +141,32 @@ openclaw-full-ml-layer-skill:
                     candy:
                         - openclaw-full-ml
             ```
-
+            
             ## Used In Boxes
-
-
+            
+            
             ## Related Candies
             - `/charly-openclaw:openclaw-full` -- base composition with all OpenClaw tools
             - `/charly-tools:whisper` -- speech-to-text component
             - `/charly-tools:sherpa-onnx` -- offline TTS component
-
+            
             ## Related Commands
             - `/charly-automation:openclaw-deploy` -- gateway configuration and channel setup
             - `/charly-build:build` -- build boxes composing this metalayer
-
+            
             ## When to Use This Skill
-
+            
             Use when the user asks about:
             - OpenClaw with ML/AI capabilities
             - Speech-to-text and text-to-speech in OpenClaw
             - CUDA-accelerated OpenClaw deployment
             - The `openclaw-full-ml` candy
-
+            
             ## Related
-
+            
             - `/charly-image:layer` — candy authoring reference (`charly.yml` schema, plan steps, service declarations)
             - `/charly-check:check` — declarative testing (`check:` block, `charly check box`, `charly check live`)
+
 openclaw-layer-skill:
     skill:
         name: openclaw-layer
@@ -172,9 +177,9 @@ openclaw-layer-skill:
             Use when working with OpenClaw, AI gateway configuration, or model routing.
         content: |-
             # openclaw -- AI gateway service
-
+            
             ## Candy Properties
-
+            
             | Property | Value |
             |----------|-------|
             | Dependencies | `nodejs`, `socat`, `supervisord` |
@@ -184,56 +189,56 @@ openclaw-layer-skill:
             | Aliases | `openclaw` -> `openclaw` |
             | Service | `openclaw` (supervisord) |
             | Install files | `package.json` |
-
+            
             ## Environment Variables
-
+            
             | Variable | Value |
             |----------|-------|
             | `NODE_ENV` | `production` |
-
+            
             ## Usage
-
+            
             ```yaml
             # charly.yml
             openclaw:
               candy:
                 - openclaw
             ```
-
+            
             ```bash
             charly alias install openclaw    # install host 'openclaw' command
             openclaw config              # uses the alias
             ```
-
+            
             ## Used In Boxes
-
+            
             - `/charly-openclaw:openclaw`
             - `/charly-openclaw:openclaw-full`
-
+            
             ## Port Relay
-
+            
             The gateway binds to `127.0.0.1:18789` (loopback only). A socat relay forwards from the container's network interface to loopback. This avoids OpenClaw's `allowedOrigins` requirement for the Control UI — all connections appear as loopback to the gateway.
-
+            
             Same pattern as the `chrome` candy (CDP on port 9222).
-
+            
             ## Related Candies
-
+            
             - `/charly-coder:nodejs` -- Node.js runtime dependency
             - `/charly-infrastructure:socat` -- port relay dependency (eth0 -> loopback)
             - `/charly-infrastructure:supervisord` -- process manager dependency
             - `/charly-ollama:ollama` -- optional local LLM backend
-
+            
             ## When to Use This Skill
-
+            
             Use when the user asks about:
-
+            
             - OpenClaw gateway setup or configuration
             - AI model routing or gateway
             - Port 18789 service
             - The `openclaw` host alias
             - OpenClaw data volume
-
+            
             ## Related
-
+            
             - `/charly-image:layer` — candy authoring reference (`charly.yml` schema, task verbs, service declarations)
             - `/charly-check:check` — declarative testing (`check:` block, `charly check box`, `charly check live`)
