@@ -2,11 +2,11 @@
 #
 #  This repo owned the `charly-openclaw:` concept candy and the OpenClaw family's
 #  three layer skills. The OpenClaw family was consolidated into
-#  opencharly/openclaw (opencharly/opencharly#431) in this same cutover, and each
+#  opencharly/layer-openclaw (opencharly/opencharly#431) in this same cutover, and each
 #  entity has a different fate:
 #
 #    openclaw-layer-skill (name: openclaw-layer)
-#        -> MOVED to opencharly/openclaw, candy/openclaw/charly.yml, projected as
+#        -> MOVED to opencharly/layer-openclaw, candy/openclaw/charly.yml, projected as
 #           /charly-openclaw:openclaw-layer. Updated for the consolidated family:
 #           `owner:` re-homed, npm openclaw@2026.9.8, the dropped variant reference
 #           removed from "Used In Boxes".

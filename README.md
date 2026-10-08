@@ -1,7 +1,7 @@
 # layer-charly-openclaw — RETIRED
 
 This repo is retired: the OpenClaw family was consolidated into
-[`opencharly/openclaw`](https://github.com/opencharly/openclaw)
+[`opencharly/layer-openclaw`](https://github.com/opencharly/layer-openclaw)
 (opencharly/opencharly#431), and this repo's four entities each had a different
 fate.
 
